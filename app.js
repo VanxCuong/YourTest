@@ -62,8 +62,7 @@ app.use(function(err, req, res, next) {
 app.locals.tieude="My App";
 console.log(app.locals.tieude);
 
-// app.locals.sumData=contact.find({},function(err,result){
-//   console.log(result);
-  
-// });
+app.locals.sumData=contact.find({},function(err,result){
+  console.log(result);
+});
 module.exports = app;

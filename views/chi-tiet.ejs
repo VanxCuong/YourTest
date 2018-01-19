@@ -1,5 +1,5 @@
 <% include header %>
-<!doctype html>
+    <!doctype html>
     <div class="jumbotron">
         <h1 class="display-3">Chi Tiết sản phẩm</h1>
         <p class="lead">Jumbo helper text</p>
@@ -12,61 +12,94 @@
     <div class="jumbotron text-center">
         <h1 class="display-3">Sản Phẩm Đã Xem</h1>
         <hr class="my-2">
-        <% if(productShow){ %>
-            <div class="row">
-                <% productShow.forEach(function(id){ %>
-                    <% data.forEach(function(i){ %>
-                        <% if(id==i._id){ %>
-                            <% if(idsanpham){ %>
-                                <% if(idsanpham!=i._id){  %>
-                                <div class="col-md-4">
-                                <div class="card text-white bg-primary">
-                                    <a href="<%= base_url %>chi-tiet/<%= i._id  %>"><img class="card-img-top" src="<%=base_url%>images/<%= i.images %>" alt=""></a>
-                                    <div class="card-body">
-                                    <h4 class="card-title"><%= i.title %></h4>
-                                    <p class="card-text"><%= i.description %></p>
-                                    </div>
-                                    <div class="card-footer ">
-                                        <div class="left pull-left">
-                                        <a href="<%= base_url %>edit/<%= i._id %>"><i class="fa fa-pencil-square-o"> Sửa</i></a>
-                                        </div>
-                                        <div class="right pull-right">
-                                            <a href="<%= base_url %>delete/<%= i._id %>"><i class="fa fa-remove"> Xóa</i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- col-4 -->
-                                </div>
-                            <% }}else{ %>
-                                <div class="col-md-4">
-                                    <div class="card text-white bg-primary">
-                                        <a href="<%= base_url %>chi-tiet/<%= i._id  %>"><img class="card-img-top" src="<%=base_url%>images/<%= i.images %>" alt=""></a>
-                                        <div class="card-body">
-                                        <h4 class="card-title"><%= i.title %></h4>
-                                        <p class="card-text"><%= i.description %></p>
-                                        </div>
-                                        <div class="card-footer ">
-                                            <div class="left pull-left">
-                                            <a href="<%= base_url %>edit/<%= i._id %>"><i class="fa fa-pencil-square-o"> Sửa</i></a>
+        <div id="reload">
+            <% if(productShow){ %>
+                <div class="row">
+                    <% productShow.forEach(function(id){ %>
+                        <% data.forEach(function(i){ %>
+                            <% if(id==i._id){ %>
+                                <% if(idsanpham){ %>
+                                    <% if(idsanpham!=i._id){  %>
+                                        <div class="col-md-4">
+                                            <div class="card text-white bg-primary">
+                                                <a href="<%= base_url %>chi-tiet/<%= i._id  %>">
+                                                    <img class="card-img-top" src="<%=base_url%>images/<%= i.images %>" alt="">
+                                                </a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">
+                                                        <%= i.title %>
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        <%= i.description %>
+                                                    </p>
+                                                </div>
+                                                <div class="card-footer ">
+                                                    <div class="right pull-right">
+                                                        <a href="<%= i._id %>" class="delete_Session">
+                                                            <i class="fa fa-remove"> Xóa Session</i>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="right pull-right">
-                                                <a href="<%= base_url %>delete/<%= i._id %>"><i class="fa fa-remove"> Xóa</i></a>
-                                            </div>
+                                            <!-- col-4 -->
                                         </div>
-                                    </div>
-                                    <!-- col-4 -->
-                                </div>
-                            <% } %>
-                        <% } %>
-                    <% }) %>
-                <% }) %>
-              </div>
-        <% } %>
+                                        <% }}else{ %>
+                                            <div class="col-md-4">
+                                                <div class="card text-white bg-primary">
+                                                    <a href="<%= base_url %>chi-tiet/<%= i._id  %>">
+                                                        <img class="card-img-top" src="<%=base_url%>images/<%= i.images %>" alt="">
+                                                    </a>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">
+                                                            <%= i.title %>
+                                                        </h4>
+                                                        <p class="card-text">
+                                                            <%= i.description %>
+                                                        </p>
+                                                    </div>
+                                                    <div class="card-footer ">
+                                                        <div class="right pull-right">
+                                                            <a href="<%= i._id %>" class="delete_Session">
+                                                                <i class="fa fa-remove"> Xóa Session</i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- col-4 -->
+                                            </div>
+                                            <% } %>
+                                                <% } %>
+                                                    <% }) %>
+                                                        <% }) %>
+                </div>
+                <% } %>
+        </div>
+        <!-- reload -->
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  </body>
-</html>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="<%=base_url%>javascripts/bootstrap.js"></script>
+    <script>
+        var link = "http://localhost:3000/chi-tiet/deleteSession/"
+        var id = $('.delete_Session').attr("href");
+        $("body").on('click', '.delete_Session', function () {
+            $.ajax({
+                // type: "post",
+                url: link + id,
+                // dataType: "json",
+                success: function (response) {
+                    if (response) {
+                        $('#reload').load(location.href + " #reload>*");
+                        return false;
+                    }
+                }
+            });
+            return false;
+
+        });
+    </script>
+    </body>
+
+    </html>

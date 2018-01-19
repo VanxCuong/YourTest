@@ -28,10 +28,20 @@ router.get('/:id',function(req,res){
         if(err){
             console.log("Chi tiết trả về lỗi");
         }else{
-            console.log(result);
+            // console.log(result);
         }
         res.render("chi-tiet",{title:"EXPRESS",productShow:req.session.idsp,data:result,idsanpham:id});
     })
 })
+router.get('/deleteSession/:id',function(req,res){
+    // console.log(req.body.id);
+    
+    mangId=req.params.id;
+    console.log(mangId);
 
+    if(req.session.idsp.splice(req.session.idsp.indexOf(mangId),1)){
+        res.send("Thành Công");
+    }
+    // res.redirect('/chi-tiet');
+})
 module.exports=router;

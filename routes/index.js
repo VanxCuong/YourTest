@@ -113,7 +113,7 @@ router.post('/edit/:id', function(req, res, next) {
     var id=req.params.id, 
         title=req.body.title,
         description=req.body.des;
-    console.log(req.file); // -> Thêm gì cũng bị lỗi ngoại trừ thêm chính ảnh gốc
+    //console.log(req.file); // -> Thêm gì cũng bị lỗi ngoại trừ thêm chính ảnh gốc
     if(err){
       console.log('Lỗi rồi:'+err);  
     }else{
