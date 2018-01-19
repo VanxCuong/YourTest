@@ -1,0 +1,53 @@
+<% include header%>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="jumbotron">
+                    <h1 class="display-3 text-center">Sửa dữ liệu dữ liệu </h1>
+                    <hr class="my-2">
+                    <p class="text-center">title ==> <%=data[0].title%></p>
+
+                    <form action="/edit/<%=data[0]._id%>" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <label for="">Ảnh Cũ</label>
+                                        <img class="img_edit" src="../images/<%=data[0].images%>" alt="">
+                                        <input type="text" name="image_old" id="" value="<%=data[0].images%>" class="form-control" placeholder="" aria-describedby="helpId">
+                                </div>
+                                <div class="col-md-6">
+                                        <label for="">Ảnh Mới</label>
+                                        <input type="file" name="images" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                                        <small id="helpId" class="text-muted">Hình ảnh</small>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group">
+                        <label for="">Tiêu đề</label>
+                        <input type="text" name="title" id="" value="<%=data[0].title%>" class="form-control" placeholder="" aria-describedby="helpId">
+                        <small id="helpId" class="text-muted">Help text</small>
+                        </div>
+                        <div class="form-group">
+                        <label for="">Mô tả</label>
+                        <input type="text" name="des" id="" value="<%=data[0].description%>" class="form-control" placeholder="" aria-describedby="helpId">
+                        <small id="helpId" class="text-muted">Help text</small>
+                        </div>
+                        <div class="form-group">
+                        <input type="submit" class="btn btn-block btn-outline-danger" value="Gửi">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
